@@ -19,4 +19,12 @@ public class HelperBase {
         wd.findElement(By.name(locator)).clear();
         wd.findElement(By.name(locator)).sendKeys(text);
     }
+
+
+
+    public void clickCheckBoxButton() {
+    }
+
+    public void clickDeletionButton() {
+    }
 }

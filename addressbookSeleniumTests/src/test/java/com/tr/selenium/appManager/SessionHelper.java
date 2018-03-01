@@ -3,9 +3,10 @@ package com.tr.selenium.appManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-public class SessionHelper {
+public class SessionHelper extends HelperBase {
     FirefoxDriver wd;
     public SessionHelper(FirefoxDriver wd) {
+        super(wd);
         this.wd = wd;
     }
 
