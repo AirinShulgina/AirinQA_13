@@ -1,6 +1,5 @@
 package com.tr.selenium.tests;
 
-import com.tr.selenium.appManager.ApplicationManager;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 

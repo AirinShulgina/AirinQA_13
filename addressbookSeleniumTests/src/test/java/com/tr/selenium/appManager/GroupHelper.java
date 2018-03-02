@@ -1,17 +1,15 @@
 package com.tr.selenium.appManager;
 
-import com.tr.selenium.model.ContactData;
 import com.tr.selenium.model.GroupData;
 import org.openqa.selenium.By;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class GroupHelper extends HelperBase {
 
+
     public GroupHelper(FirefoxDriver wd) {
         super(wd);
     }
-
-
 
     public void returnToGroupsPage() {
         click(By.linkText("group page"));
@@ -21,12 +19,15 @@ public class GroupHelper extends HelperBase {
         click(By.name("submit"));
     }
 
-    public void fillGroupForm(GroupData groupData) {
-        type("group_name", groupData.getGroupName());
-        type("group_header", groupData.getGroupHeader());
-        type("group_footer", groupData.getGroupFooter());
+    public void click(By locator) {
+        wd.findElement(locator).click();
     }
 
+    public void fillGroupForm(GroupData groupData) {
+        type(By.name("group_name"), groupData.getGroupName());
+        type(By.name("group_header"), groupData.getGroupHeader());
+        type(By.name("group_footer"), groupData.getGroupFooter());
+    }
 
     public void initGroupCreation() {
         click(By.name("new"));
@@ -36,7 +37,7 @@ public class GroupHelper extends HelperBase {
         click(By.name("selected[]"));
     }
 
-    public void initGroupDeletion() {
+    public void initGroupDeleteion() {
         click(By.name("delete"));
     }
 
@@ -45,37 +46,10 @@ public class GroupHelper extends HelperBase {
     }
 
     public void submitGroupModification() {
-        click(By.xpath("//input[@type='submit']"));
+        click(By.xpath("//*[@value='Update']"));
     }
 
-    public void fillContactForm(ContactData contactData) {
-        type("firstname", contactData.getName());
-
-        type("lastname", contactData.getLastName());
-
-        type("home", contactData.getHomePhone());
-
-        type("address", contactData.getAddress());
-
+    public int getGroupCount() {
+        return wd.findElements(By.name("selected[]")).size();
     }
-
-    public void clickEnterButton() {
-        click(By.name("submit"));
-    }
-
-    public void clickHomeButton() {
-        click(By.xpath("//a[@href='./']"));
-    }
-
-    public void clickEditButton() {
-        click(By.xpath("//a[@href='edit.php?id=1']"));
-    }
-
-    public void clickUpdateButton() {
-        click(By.name("update"));
-    }
-
-
-
-
 }
