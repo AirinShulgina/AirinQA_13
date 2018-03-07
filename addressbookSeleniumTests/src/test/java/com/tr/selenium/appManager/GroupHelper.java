@@ -2,12 +2,13 @@ package com.tr.selenium.appManager;
 
 import com.tr.selenium.model.GroupData;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-public class GroupHelper extends HelperBase {
+public class GroupHelper extends HelperBase{
 
 
-    public GroupHelper(FirefoxDriver wd) {
+    public GroupHelper(WebDriver wd) {
         super(wd);
     }
 
@@ -19,15 +20,15 @@ public class GroupHelper extends HelperBase {
         click(By.name("submit"));
     }
 
-    public void click(By locator) {
-        wd.findElement(locator).click();
-    }
+
 
     public void fillGroupForm(GroupData groupData) {
         type(By.name("group_name"), groupData.getGroupName());
         type(By.name("group_header"), groupData.getGroupHeader());
         type(By.name("group_footer"), groupData.getGroupFooter());
     }
+
+
 
     public void initGroupCreation() {
         click(By.name("new"));
@@ -37,7 +38,7 @@ public class GroupHelper extends HelperBase {
         click(By.name("selected[]"));
     }
 
-    public void initGroupDeleteion() {
+    public void initGroupDeletion() {
         click(By.name("delete"));
     }
 
@@ -50,6 +51,22 @@ public class GroupHelper extends HelperBase {
     }
 
     public int getGroupCount() {
-        return wd.findElements(By.name("selected[]")).size();
+        return  wd.findElements(By.name("selected[]")).size();
+    }
+
+    public void createGroup() {
+        initGroupCreation();
+        fillGroupForm(new GroupData()
+                .withGroupName("test1")
+                .withGroupFooter("Test1Footer"));
+        submitGroupCreation();
+        returnToGroupsPage();
+    }
+
+    public boolean isGroupExist() {
+        return isElementPresent((By.name("selected[]")));
+
+
+
     }
 }

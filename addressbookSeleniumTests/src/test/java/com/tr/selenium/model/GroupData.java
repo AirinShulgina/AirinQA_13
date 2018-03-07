@@ -1,9 +1,9 @@
 package com.tr.selenium.model;
 
 public class GroupData {
-    private  String groupName;
-    private  String groupHeader;
-    private  String groupFooter;
+    private String groupName;
+    private String groupHeader;
+    private String groupFooter;
 
 //    public GroupData(String groupName, String groupHeader, String groupFooter) {
 //        this.groupName = groupName;
@@ -18,14 +18,12 @@ public class GroupData {
 
     public GroupData withGroupHeader(String groupHeader) {
         this.groupHeader = groupHeader;
-        return this;
-
+        return  this;
     }
 
     public GroupData withGroupFooter(String groupFooter) {
         this.groupFooter = groupFooter;
         return this;
-
     }
 
     public String getGroupName() {

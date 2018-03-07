@@ -1,31 +1,34 @@
 package com.tr.selenium.model;
 
 public class ContactData {
-    private  String name;
-    private  String lastName;
-    private  String homePhone;
-    private  String address;
+    String firstName;
+    String lastName;
+    String address;
 
-    public ContactData(String name, String lastName, String homePhone, String address) {
-        this.name = name;
-        this.lastName = lastName;
-        this.homePhone = homePhone;
-        this.address = address;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public String getName() {
-        return name;
+    public ContactData setFirstName(String firstName) {
+        this.firstName = firstName;
+        return this;
     }
 
     public String getLastName() {
         return lastName;
     }
 
-    public String getHomePhone() {
-        return homePhone;
+    public ContactData setLastName(String lastName) {
+        this.lastName = lastName;
+        return this;
     }
 
     public String getAddress() {
         return address;
+    }
+
+    public ContactData setAddress(String address) {
+        this.address = address;
+        return  this;
     }
 }

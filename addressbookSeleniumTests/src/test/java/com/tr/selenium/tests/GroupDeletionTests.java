@@ -1,12 +1,16 @@
 package com.tr.selenium.tests;
 
-        import org.testng.Assert;
-        import org.testng.annotations.Test;
+import org.testng.Assert;
+import org.testng.annotations.Test;
 
-public class GroupDeletionTests extends  TestBase{
+public class GroupDeletionTests extends TestBase {
     @Test
     public void deletionGroupTest(){
-        app.goToGroupsPage();
+        app.getNavigationHelper().goToGroupsPage();
+        if(! app.getGroupHelper().isGroupExist()){
+            app.getGroupHelper().createGroup();
+        }
+
         int before = app.getGroupHelper().getGroupCount();
         app.getGroupHelper().selectGroup();
         app.getGroupHelper().initGroupDeletion();
